@@ -161,12 +161,18 @@ export default function Index() {
                   Откройте для себя новое поколение технологий. Элегантный дизайн встречается с инновациями.
                 </p>
                 <div className="flex gap-4 justify-center pt-4">
-                  <Button size="lg" onClick={() => setActiveSection('catalog')} className="text-base shadow-lg">
+                  <button 
+                    onClick={() => setActiveSection('catalog')} 
+                    className="aqua-button px-8 py-3 rounded-xl text-base font-medium text-foreground"
+                  >
                     Смотреть каталог
-                  </Button>
-                  <Button size="lg" variant="outline" onClick={() => setActiveSection('about')} className="text-base bg-white/90 backdrop-blur shadow-lg">
+                  </button>
+                  <button 
+                    onClick={() => setActiveSection('about')} 
+                    className="aqua-button px-8 py-3 rounded-xl text-base font-medium text-foreground"
+                  >
                     Узнать больше
-                  </Button>
+                  </button>
                 </div>
               </div>
             </section>
