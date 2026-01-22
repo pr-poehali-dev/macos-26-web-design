@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -48,6 +48,16 @@ export default function Index() {
   const [activeSection, setActiveSection] = useState<'home' | 'catalog' | 'cart' | 'about'>('home');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('Все');
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const categories = ['Все', 'Аудио', 'Гаджеты', 'Компьютеры'];
 
@@ -136,9 +146,10 @@ export default function Index() {
           <div className="animate-fade-in">
             <section className="relative min-h-[70vh] flex items-center justify-center px-6 overflow-hidden">
               <div 
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-75"
                 style={{
-                  backgroundImage: 'url(https://cdn.poehali.dev/projects/f84a78fc-54db-4591-8ad1-5833fe908d71/files/79f1c7e5-5942-40c0-8dc4-a26e573d14f8.jpg)'
+                  backgroundImage: 'url(https://cdn.poehali.dev/projects/f84a78fc-54db-4591-8ad1-5833fe908d71/files/79f1c7e5-5942-40c0-8dc4-a26e573d14f8.jpg)',
+                  transform: `translateY(${scrollY * 0.5}px)`
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-background" />
