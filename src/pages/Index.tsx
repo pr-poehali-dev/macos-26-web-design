@@ -135,19 +135,25 @@ export default function Index() {
         {activeSection === 'home' && (
           <div className="animate-fade-in">
             <section className="relative min-h-[70vh] flex items-center justify-center px-6 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
-              <div className="relative text-center max-w-4xl mx-auto space-y-6">
-                <h2 className="text-6xl md:text-7xl font-bold tracking-tight animate-scale-in">
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: 'url(https://cdn.poehali.dev/projects/f84a78fc-54db-4591-8ad1-5833fe908d71/files/79f1c7e5-5942-40c0-8dc4-a26e573d14f8.jpg)'
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-background" />
+              <div className="relative text-center max-w-4xl mx-auto space-y-6 z-10">
+                <h2 className="text-6xl md:text-7xl font-bold tracking-tight animate-scale-in drop-shadow-lg">
                   Думай иначе
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-xl text-foreground max-w-2xl mx-auto drop-shadow">
                   Откройте для себя новое поколение технологий. Элегантный дизайн встречается с инновациями.
                 </p>
                 <div className="flex gap-4 justify-center pt-4">
-                  <Button size="lg" onClick={() => setActiveSection('catalog')} className="text-base">
+                  <Button size="lg" onClick={() => setActiveSection('catalog')} className="text-base shadow-lg">
                     Смотреть каталог
                   </Button>
-                  <Button size="lg" variant="outline" onClick={() => setActiveSection('about')} className="text-base">
+                  <Button size="lg" variant="outline" onClick={() => setActiveSection('about')} className="text-base bg-white/90 backdrop-blur shadow-lg">
                     Узнать больше
                   </Button>
                 </div>
